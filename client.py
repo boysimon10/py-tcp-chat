@@ -1,10 +1,14 @@
 import socket
+import sys
 import threading
+
+host = sys.argv[1] if len(sys.argv) > 1 else '127.0.0.1'
+port = 6000
 
 username = input("Choose your username: ")
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('127.0.0.1', 5000))
+client.connect((host, port))
 
 def receive():
     while True:
